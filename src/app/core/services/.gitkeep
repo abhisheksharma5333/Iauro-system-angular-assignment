@@ -1,0 +1,4 @@
+// Core services - singleton services used application-wide
+// Add your core services here (e.g., AuthService, ApiService, etc.)
+
+export const CORE_SERVICES_PLACEHOLDER = 'Core services will be added here';
