@@ -1,0 +1,92 @@
+.home-container {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  mat-card {
+    animation: slideIn 0.3s ease-out;
+
+    mat-card-header {
+      margin-bottom: 1rem;
+
+      mat-card-title {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    mat-card-content {
+      padding: 0;
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .hero-card {
+    background: linear-gradient(135deg, #3f51b5 0%, #e91e63 100%);
+    color: white;
+
+    mat-card-header mat-card-title {
+      color: white;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+    }
+  }
+
+  .features-card {
+    mat-list {
+      mat-list-item {
+        height: auto;
+        padding: 0.5rem 0;
+
+        mat-icon {
+          margin-right: 1rem;
+        }
+
+        .mdc-list-item__primary-text {
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  .getting-started-card {
+    .steps-list {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+
+      li {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+
+        code {
+          background-color: #f5f5f5;
+          padding: 0.25rem 0.5rem;
+          border-radius: 3px;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9em;
+          color: #e91e63;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

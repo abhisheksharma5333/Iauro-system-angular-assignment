@@ -1,0 +1,136 @@
+<mat-card class="form-container">
+  <mat-card-header>
+    <mat-card-title>Add Student</mat-card-title>
+    <mat-card-subtitle>Enter student details below</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <div class="form-section">
+        <h3>Personal Information</h3>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" placeholder="Enter first name" />
+            <mat-error *ngIf="isFieldInvalid('firstName', 'required')">First name is required</mat-error>
+            <mat-error *ngIf="isFieldInvalid('firstName', 'minlength')">
+              First name must be at least 2 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" placeholder="Enter last name" />
+            <mat-error *ngIf="isFieldInvalid('lastName', 'required')">Last name is required</mat-error>
+            <mat-error *ngIf="isFieldInvalid('lastName', 'minlength')">
+              Last name must be at least 2 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email Address</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Enter email address" />
+            <mat-error *ngIf="isFieldInvalid('email', 'required')">Email is required</mat-error>
+            <mat-error *ngIf="isFieldInvalid('email', 'email')">Please enter a valid email address</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row radio-group">
+          <label class="form-label">Gender</label>
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Other">Other</mat-radio-button>
+          </mat-radio-group>
+          <mat-error *ngIf="isFieldInvalid('gender', 'required')">Gender is required</mat-error>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Select date of birth" />
+            <mat-datepicker-toggle matSuffix [for]="picker" />
+            <mat-datepicker #picker />
+            <mat-error *ngIf="isFieldInvalid('dob', 'required')">Date of birth is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" [matAutocomplete]="auto" placeholder="Enter city" />
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-optgroup *ngFor="let group of cityGroups" [label]="group.category">
+                <mat-option *ngFor="let city of group.cities" [value]="city">{{ city }}</mat-option>
+              </mat-optgroup>
+            </mat-autocomplete>
+            <mat-error *ngIf="isFieldInvalid('city', 'required')">City is required</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-divider />
+
+      <div class="form-section">
+        <h3>Education</h3>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Course</mat-label>
+            <mat-select formControlName="course">
+              <mat-option value="">Select a course</mat-option>
+              <mat-option value="Computer Science">Computer Science</mat-option>
+              <mat-option value="Information Technology">Information Technology</mat-option>
+              <mat-option value="Software Engineering">Software Engineering</mat-option>
+              <mat-option value="Data Science">Data Science</mat-option>
+              <mat-option value="Web Development">Web Development</mat-option>
+              <mat-option value="Mobile Development">Mobile Development</mat-option>
+            </mat-select>
+            <mat-error *ngIf="isFieldInvalid('course', 'required')">Course is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row skills-section">
+          <label class="form-label">Skills</label>
+          <div formGroupName="skillsGroup" class="skills-grid">
+            <mat-checkbox *ngFor="let skill of availableSkills" [formControlName]="skill" class="skill-checkbox">
+              {{ skill }}
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <mat-divider />
+
+      <div class="form-section">
+        <h3>Address</h3>
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Street Address</mat-label>
+            <textarea matInput formControlName="address" placeholder="Enter street address" rows="3"></textarea>
+            <mat-error *ngIf="isFieldInvalid('address', 'required')">Address is required</mat-error>
+            <mat-error *ngIf="isFieldInvalid('address', 'minlength')">
+              Address must be at least 5 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid || isSubmitting">
+          <mat-icon *ngIf="!isSubmitting">save</mat-icon>
+          <span *ngIf="!isSubmitting">Submit</span>
+          <span *ngIf="isSubmitting">Saving...</span>
+        </button>
+        <button mat-stroked-button type="button" (click)="onReset()" [disabled]="isSubmitting">
+          <mat-icon>refresh</mat-icon>
+          Reset
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

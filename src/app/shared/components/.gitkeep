@@ -1,0 +1,4 @@
+// Shared components - reusable components across features
+// Add shared components like: HeaderComponent, FooterComponent, ButtonComponent, etc.
+
+export const SHARED_COMPONENTS_PLACEHOLDER = 'Shared components will be added here';

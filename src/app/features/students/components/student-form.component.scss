@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.form-container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+mat-card-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-section {
+  margin-bottom: 1.5rem;
+}
+
+.form-section h3 {
+  color: #1976d2;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-label {
+  color: rgba(0, 0, 0, 0.87);
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-top: 0.5rem;
+}
+
+mat-divider {
+  margin: 1.5rem 0;
+}
+
+.form-actions {
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}

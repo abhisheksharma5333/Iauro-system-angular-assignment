@@ -1,0 +1,132 @@
+// ============================================================================
+// Angular Material Theme - Prebuilt Theme with Customization
+// ============================================================================
+
+// Import Material's prebuilt theme - Indigo/Pink theme
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// ============================================================================
+// Global Application Styles
+// ============================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+}
+
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+// Material component customizations
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-flat-button {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+// Enable animations globally
+@media (prefers-reduced-motion: no-preference) {
+  // Material animation timing
+  .mat-mdc-button,
+  .mat-mdc-card,
+  .mat-toolbar,
+  .mat-list-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// ============================================================================
+// Snackbar Notifications
+// ============================================================================
+
+.notification-snackbar {
+  &--success {
+    ::ng-deep .mdc-snackbar__surface {
+      background-color: #4caf50 !important;
+    }
+
+    ::ng-deep .mdc-snackbar__label {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    ::ng-deep .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  &--error {
+    ::ng-deep .mdc-snackbar__surface {
+      background-color: #f44336 !important;
+    }
+
+    ::ng-deep .mdc-snackbar__label {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    ::ng-deep .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  &--warning {
+    ::ng-deep .mdc-snackbar__surface {
+      background-color: #ff9800 !important;
+    }
+
+    ::ng-deep .mdc-snackbar__label {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    ::ng-deep .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  &--info {
+    ::ng-deep .mdc-snackbar__surface {
+      background-color: #2196f3 !important;
+    }
+
+    ::ng-deep .mdc-snackbar__label {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    ::ng-deep .mat-mdc-button {
+      color: white !important;
+    }
+  }
+}// Custom scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+
+  &:hover {
+    background: #555;
+  }
+}

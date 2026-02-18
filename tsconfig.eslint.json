@@ -1,0 +1,7 @@
+{
+  "extends": "@angular/eslint/tsconfig",
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "types": ["jasmine"]
+  }
+}

@@ -1,0 +1,35 @@
+<section class="students-page">
+  <mat-toolbar color="primary">
+    <mat-icon>school</mat-icon>
+    <span>Student Management</span>
+  </mat-toolbar>
+
+  <section class="stats-grid">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <p class="stat-label">Total students</p>
+        <p class="stat-value">{{ store.totalStudents() }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <p class="stat-label">Available courses</p>
+        <p class="stat-value">{{ store.getUniqueCourses().length }}</p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  @if (store.error()) {
+    <mat-card class="error-card" appearance="outlined">
+      <mat-card-content>
+        <div class="error-content">
+          <mat-icon color="warn">error_outline</mat-icon>
+          <span>{{ store.error() }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <app-student-form />
+  <app-student-table />
+</section>
